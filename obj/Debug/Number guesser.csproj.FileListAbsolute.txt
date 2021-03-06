@@ -1,0 +1,7 @@
+C:\Users\gokul\source\repos\Number guesser\Number guesser\obj\Debug\Number guesser.csprojAssemblyReference.cache
+C:\Users\gokul\source\repos\Number guesser\Number guesser\obj\Debug\Number guesser.csproj.CoreCompileInputs.cache
+C:\Users\gokul\source\repos\Number guesser\Number guesser\bin\Debug\Number guesser.exe.config
+C:\Users\gokul\source\repos\Number guesser\Number guesser\bin\Debug\Number guesser.exe
+C:\Users\gokul\source\repos\Number guesser\Number guesser\bin\Debug\Number guesser.pdb
+C:\Users\gokul\source\repos\Number guesser\Number guesser\obj\Debug\Number guesser.exe
+C:\Users\gokul\source\repos\Number guesser\Number guesser\obj\Debug\Number guesser.pdb
