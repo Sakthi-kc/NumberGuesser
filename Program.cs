@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Number_guesser
 {
@@ -6,23 +6,6 @@ namespace Number_guesser
     {
         static void Main(string[] args)
         {
-            /*
-            // Adds new line at the end
-            Console.WriteLine("Hello World");
-
-            // Doesn't add a new line
-            Console.Write("Hello World");
-
-            // Variables
-            String name = "Sakthi KC";
-            int age = 20;
-            //Console.WriteLine("\nHello {0}. Your age is {1}. ", name, age);
-
-            // ParseInt
-            String num = "10";
-            int number = Int32.Parse(num);
-            */
-
             // Game starts
             // Game variables
             String appName = "Number Guesser";
@@ -41,8 +24,8 @@ namespace Number_guesser
             Console.WriteLine("{0}, lets play the game",userName);
 
             // Set original number and user number
-            //int originalNumber = 15;
-            // To generate a random number
+            // int originalNumber = 10;
+            // To generate a random number - The lower bound (1) is inclusive, while the upper bound (25) is exclusive.
             Random random = new Random();
             int originalNumber = random.Next(1, 25);
             Console.WriteLine("\n\nGuess a number between 1 and 25");
@@ -54,33 +37,44 @@ namespace Number_guesser
             while(userNumber!= originalNumber && count<5)
             {
                 String guess = Console.ReadLine();
-                if(Char.IsLetter(guess, 0))
+                if (Char.IsLetter(guess, 0))
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Enter any digit to win the game");
-                    Console.ResetColor();
-                    guess = Console.ReadLine();
-                    count++;
-                }
-                userNumber = Int32.Parse(guess);
-                if(userNumber>25)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Enter between the specified range");
-                    Console.ResetColor();
-                    count++;
-                }
-                else if (userNumber != originalNumber)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Nope! Try again");
-                    Console.ResetColor();
+                    if (count < 4)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Enter any digit to win the game");
+                        Console.ResetColor();
+                    }
                     count++;
                 }
                 else
-                    break;
+                {
+                    userNumber = Int32.Parse(guess);
+                    if (userNumber > 25)
+                    {
+                        if (count < 4)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("Enter between the specified range");
+                            Console.ResetColor();
+                        }
+                        count++;
+                    }
+                    else if (userNumber != originalNumber)
+                    {
+                        if (count < 4)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("Nope! Try again");
+                            Console.ResetColor();
+                        }
+                        count++;
+                    }
+                    else
+                        break;
+                }
             }
-            if (count >= 5)
+            if (count == 5)
             {
                 //Failure
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -95,6 +89,9 @@ namespace Number_guesser
                 Console.WriteLine("\nHey {0}, you made it. Congrats!", userName);
                 Console.ResetColor();
             }
+
+            Console.WriteLine("\nThanks for playing!");
+            Console.ReadKey();
         }
     }
 }
